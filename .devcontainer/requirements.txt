@@ -1,0 +1,4 @@
+# Blockchain Related
+web3
+py-solc-x
+streamlit
