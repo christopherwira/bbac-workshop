@@ -1,13 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-/**
- * @title SmartLock
- * @author Your Name
- * @notice A simple smart contract to manage access control for IoT devices.
- * This contract simulates a smart lock where an owner can grant or revoke
- * access to specific device addresses.
- */
 contract BlockchainBasedAccessControl {
     // --- State Variables ---
 
@@ -26,6 +19,9 @@ contract BlockchainBasedAccessControl {
 
     // Emitted when a device's access is revoked.
     event AccessRevoked(address indexed device);
+
+    // Emitted when a device's access request is accepted.
+    event AccessRequest(address indexed device);
 
     // --- Modifiers ---
 
@@ -82,9 +78,6 @@ contract BlockchainBasedAccessControl {
      */
     function unlockDoor() public view returns (bool) {
         require(hasAccess[msg.sender], "Access Denied: Device not on the list");
-        // In a real-world scenario, this function might trigger an off-chain event
-        // or interact with another contract. For this example, simply returning
-        // true is enough to prove the access check worked.
         return true;
     }
 }
